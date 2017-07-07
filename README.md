@@ -38,6 +38,7 @@ Le design du site est défini par des gabarits écrits dans le langage Lodelscri
 
 Installation
 ------------
+
 Notez qu'une version pré-installée de Lodel (et OTX, l’application de conversion Word/Office vers XML/TEI) en tant qu’image de machine virtuelle linux Debian est téléchargeable à l’adresse : http://lodel.org/downloads/vms/
 
 Pré-requis:
@@ -56,3 +57,24 @@ Marche à suivre:
   - Il faudra donner temporairement les droits d'écriture sur le dossier d'une instance de site.
   - Vérifer qu'à l'intérieur du dossier d'un site l'utilisateur du serveur HTTP a bien les droits d'écriture sur les dossiers:
       upload, docannexe, docannexe/file, docannexe/image, lodel/sources, lodel/icons
+      
+      
+
+### Avec Docker (pour développement / tests) ###
+
+Lodel est disponible en version conteneurisée (Nginx + Mysql + PHP-FPM). Le code 
+source lui n'est pas disponible dans un conteneur mais est partagé entre la machine
+d'accueil et le conteneur de PHP-FPM (ceci étant automatiquement effectué lors de la
+composition qui suit).
+
+L'installation de Lodel via des conteneurs Docker présuppose que ce dernier soit 
+déjà installé. Voir [l'aide à l'installation officiel](https://docs.docker.com/engine/installation/)
+si ce n'est pas le cas.
+
+Une fois le répositoire cloné, placez-vous à la raçine du code source en ligne de 
+commande, puis effectuez :
+  - docker-compose up --build
+  
+  Une fois l'opération terminé, ouvrez votre navigateur et rendez vous à l'adresse 
+  suivant : http://localhost:9009 . L'interface d'installation de Lodel devrait alors
+  apparaître !

@@ -1,0 +1,35 @@
+web:
+    image: nginx:alpine
+    container_name: lodel_server
+    ports:
+        - "9009:80"
+        - "9010:443"
+    links:
+        - php
+        - "db:database"
+    volumes:
+        - .:/code
+        - ./.docker/site.conf:/etc/nginx/conf.d/default.conf
+
+php:
+    build: .
+    dockerfile: .docker/fpm/dockerfile
+    container_name: lodel_php
+    expose:
+        - "9000"
+    volumes:
+        - .:/code
+        
+db:
+    image: wangxian/alpine-mysql
+    ports:
+        - "3306"
+    container_name: lodel_db
+    environment:
+        MYSQL_ROOT_PASSWORD: password
+        MYSQL_USER: admin
+        MYSQL_PASSWORD: password
+        MYSQL_DATABASE: database
+    volumes:
+        - ./data/mysql/:/docker-entrypoint-initdb.d
+        - data_volume:/var/lib/mysql

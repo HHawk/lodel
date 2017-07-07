@@ -1,0 +1,12 @@
+FROM php:5.6-fpm
+
+RUN apt-get -qq update \
+	&& docker-php-ext-install mysql \
+	&& docker-php-ext-install mysqli
+RUN apt-get clean
+	
+RUN sed -i '/phpize/i \
+	[[ ! -f "config.m4" && -f "config0.m4" ]] && mv config0.m4 config.m4' \
+	/usr/local/bin/docker-php-ext-configure
+
+CMD ["php-fpm"]

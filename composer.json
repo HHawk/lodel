@@ -1,0 +1,8 @@
+{
+    "name": "openedition/lodel",
+    "description": "Lodel est un logiciel d'édition électronique. Il permet de publier en ligne des articles issus d'un traitement de texte.",
+    "type": "project",
+    "license": "GPL-2.0",
+    "minimum-stability": "stable",
+    "require": {}
+}

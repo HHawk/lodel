@@ -39,6 +39,9 @@ Le design du site est défini par des gabarits écrits dans le langage Lodelscri
 Installation
 ------------
 
+Attention ! : dans le cas d'une réinstallation, le fichier lodelconfig.php doit être éffacé !
+
+
 Notez qu'une version pré-installée de Lodel (et OTX, l’application de conversion Word/Office vers XML/TEI) en tant qu’image de machine virtuelle linux Debian est téléchargeable à l’adresse : http://lodel.org/downloads/vms/
 
 Pré-requis:
@@ -57,6 +60,11 @@ Marche à suivre:
   - Il faudra donner temporairement les droits d'écriture sur le dossier d'une instance de site.
   - Vérifer qu'à l'intérieur du dossier d'un site l'utilisateur du serveur HTTP a bien les droits d'écriture sur les dossiers:
       upload, docannexe, docannexe/file, docannexe/image, lodel/sources, lodel/icons
+      
+Informations complémentaires :
+  - la requête exacte pour donner les droits à l'utilisateur de la base de 
+donnée est "GRANT ALL ON `lodeldbname%`.* TO admin", contrairement à ce qui est
+indiqué via l'interface graphique durant l'installation (où `lodeldbname` est le nom spécifié lors de l'installation) ;
       
       
 

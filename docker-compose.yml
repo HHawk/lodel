@@ -2,7 +2,7 @@ web:
     image: nginx:alpine
     container_name: lodel_server
     ports:
-        - "9009:80"
+        - "80:80"
         - "9010:443"
     links:
         - php
